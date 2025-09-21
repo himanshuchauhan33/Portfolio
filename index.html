@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Himanshu Chauhan | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Remix Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css">
+
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background: #111; color: #eee; line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+    section { padding: 80px 40px; max-width: 900px; margin: auto; opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    section.visible { opacity: 1; transform: translateY(0); }
+
+    /* Sidebar */
+    .sidebar { position: fixed; top: 0; left: 0; width: 250px; height: 100%; background: #000; display: flex; flex-direction: column; align-items: center; padding-top: 40px; z-index: 1000; }
+    .sidebar .logo { font-size: 1.8rem; font-weight: 700; color: #00C0A0; margin-bottom: 50px; }
+    .sidebar nav { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar nav a { color: #eee; font-weight: 500; transition: 0.3s; }
+    .sidebar nav a:hover { color: #00C0A0; }
+
+    /* Main Content */
+    .main { margin-left: 250px; }
+
+    /* Hero Section */
+    .hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; position: relative; }
+    .hero img { width: 180px; height: 180px; border-radius: 50%; border: 4px solid #00C0A0; margin-bottom: 20px; animation: float 4s ease-in-out infinite; }
+    .hero h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
+    .hero h3 { font-size: 1.5rem; margin-bottom: 15px; color: #00C0A0; min-height: 40px; }
+    .typing { border-right: 3px solid #00C0A0; white-space: nowrap; overflow: hidden; display: inline-block; }
+
+    @keyframes float { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-15px); } }
+
+    /* Section Titles */
+    .section-title { font-size: 2rem; text-align: center; margin-bottom: 40px; color: #00C0A0; position: relative; }
+    .section-title::after { content: ""; width: 60px; height: 3px; background: #fff; display: block; margin: 12px auto 0; border-radius: 2px; }
+
+    /* About */
+    .about p { font-size: 1.1rem; text-align: center; max-width: 800px; margin: auto; color: #ccc; }
+
+    /* Skills */
+    .skills { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .skill { background: #000; border: 1px solid #333; padding: 15px 25px; border-radius: 10px; font-weight: 500; display: flex; align-items: center; gap: 10px; position: relative; overflow: hidden; transition: 0.3s; }
+    .skill:hover { background: #00C0A0; color: #000; }
+    .skill i { font-size: 1.3rem; color: #00C0A0; transition: 0.3s; }
+    .skill:hover i { color: #000; }
+    .skill-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: #00C0A0; width: 0%; transition: width 1s ease; }
+
+    /* Experience */
+    .experience { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .exp-card { background: #000; border: 1px solid #333; padding: 25px; border-radius: 12px; max-width: 700px; text-align: center; transition: 0.3s; }
+    .exp-card:hover { transform: scale(1.02); border-color: #00C0A0; }
+    .exp-card h3 { color: #00C0A0; margin-bottom: 10px; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    .project-card { background: #000; border: 1px solid #333; padding: 25px; border-radius: 12px; transition: 0.3s; }
+    .project-card:hover { transform: scale(1.02); border-color: #00C0A0; }
+    .project-card h3 { color: #00C0A0; margin-bottom: 10px; }
+    .project-link { color: #00C0A0; font-weight: 500; transition: 0.3s; }
+    .project-link:hover { color: #fff; }
+
+    /* Contact */
+    .contact { text-align: center; font-size: 1.1rem; }
+    .contact a { color: #00C0A0; transition: 0.3s; }
+    .contact a:hover { color: #fff; }
+
+    /* Footer */
+    footer { background: #000; color: #eee; text-align: center; padding: 20px 0; margin-top: 40px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar { width: 60px; }
+      .sidebar nav a { font-size: 0; }
+      .main { margin-left: 60px; }
+      .hero img { width: 120px; height: 120px; }
+      .hero h1 { font-size: 2rem; }
+      .hero h3 { font-size: 1rem; min-height: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">Himanshu</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <img src="./MY_PIC.jpg" alt="Profile">
+        <h1>Himanshu Chauhan</h1>
+        <h3 class="typing"></h3>
+        <p>Building impactful solutions with AI, Computer Vision, and Web Development.</p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about">
+        <p>
+          I’m Himanshu Chauhan, a Final Year B.Tech AIML student at RD Engineering College, dedicated to transforming innovative ideas into impactful, real-world solutions. Over the years, I have developed strong expertise in HTML, CSS, Python, SQL, and SDLC, which allows me to design and build robust web applications and intelligent AI systems.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+        <div class="skill"><i class="ri-html5-fill"></i> HTML <div class="skill-bar" style="width:90%"></div></div>
+        <div class="skill"><i class="ri-css3-fill"></i> CSS <div class="skill-bar" style="width:85%"></div></div>
+        <div class="skill"><i class="ri-code-s-slash-line"></i> Python <div class="skill-bar" style="width:80%"></div></div>
+        <div class="skill"><i class="ri-database-2-fill"></i> SQL <div class="skill-bar" style="width:70%"></div></div>
+        <div class="skill"><i class="ri-loop-left-line"></i> SDLC <div class="skill-bar" style="width:75%"></div></div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div class="experience">
+        <div class="exp-card">
+          <h3>Web Development Intern</h3>
+          <p><b>VaultOfCodes</b> – August 2025 (1 Month)</p>
+          <p>Developed responsive web pages, improved UI/UX, and implemented real-world features using HTML, CSS, and JavaScript.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <h3>OpenCV Filters Project</h3>
+          <p>A computer vision project using OpenCV to apply various image filters and transformations.</p>
+          <a href="https://github.com/himanshuchauhan33/opencv-filters-project" target="_blank" class="project-link">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact">
+        <p>Email: <a href="mailto:himanshuchauhan0356@gmail.com">himanshuchauhan0356@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/himanshu-chauhan-6b6268370/" target="_blank">linkedin.com/in/himanshu</a></p>
+        <p>GitHub: <a href="https://github.com/himanshuchauhan33" target="_blank">github.com/himanshuchauhan33</a></p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Himanshu Chauhan | Portfolio Website</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Fade-in sections on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+
+    // Typing slideshow
+    const titles = [
+      "Final Year B.Tech AIML Student",
+      "AI & Machine Learning Enthusiast",
+      "Web Developer & Designer",
+      "Computer Vision Explorer",
+      "Problem Solver & Innovator"
+    ];
+    let index = 0;
+    const typingElement = document.querySelector(".typing");
+    let charIndex = 0;
+    let isDeleting = false;
+    let delay = 200;
+
+    function type() {
+      const current = titles[index];
+      if(!isDeleting) {
+        typingElement.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        if(charIndex === current.length) { isDeleting = true; delay = 1000; }
+      } else {
+        typingElement.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        if(charIndex === 0) { isDeleting = false; index = (index + 1) % titles.length; delay = 200; }
+      }
+      setTimeout(type, delay);
+    }
+    type();
+
+    // Animate skill bars
+    const skillBars = document.querySelectorAll(".skill-bar");
+    const skillsSection = document.getElementById("skills");
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          skillBars.forEach(bar => {
+            bar.style.width = bar.getAttribute("style").match(/\d+/)[0] + "%";
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    skillObserver.observe(skillsSection);
+  </script>
+</body>
+</html>
