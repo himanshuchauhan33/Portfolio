@@ -43,7 +43,7 @@ portfolio/
 ├─ index.html # Main website
 ├─ MY_PIC.jpg # Profile picture
 ├─ README.md # Project documentation
-└─ (optional folders for CSS/JS if separated)
+
 
 
 ---
@@ -64,4 +64,5 @@ portfolio/
 - Feel free to clone or use this project as a template for your own portfolio.
 
 ---
+
 
